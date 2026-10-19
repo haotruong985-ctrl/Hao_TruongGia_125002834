@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Cars</title>
+    <link rel="stylesheet" href="style.css">
+    
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+>
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+>
+</head>
+<body>
+    <header>
+    <h1 class="animate__animated animate__fadeInDown">
+    LUXURY CARS
+</h1>
+        <p>Khám phá thế giới siêu xe</p>
+    </header>
+
+    <nav>
+        <a href="#home">Trang chủ</a>
+        <a href="#cars">Bộ sưu tập</a>
+        <a href="#contact">Liên hệ</a>
+        <a href="#reviews">Đánh giá</a>
+    </nav>
+
+    <main>
+       <section id="home" data-aos="fade-up">
+            <h2>Chào mừng đến với Luxury Cars</h2>
+            <p>Nơi hội tụ của tốc độ, công nghệ và đẳng cấp.</p>
+        </section>
+
+        
+<section id="cars" data-aos="fade-up">
+    <h2>Bộ sưu tập siêu xe</h2>
+    <p>Khám phá những mẫu xe thể thao ấn tượng.</p>
+
+    <div class="car-grid">
+
+       <article class="car-card" data-aos="fade-up" data-aos-delay="100">
+            <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
+                alt="Porsche 911 thể thao">
+            <h3>Porsche 911</h3>
+            <p>Biểu tượng của hiệu suất và phong cách.</p>
+        </article>
+
+        <article class="car-card" data-aos="fade-up" data-aos-delay="250">
+            <img
+                src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80"
+                alt="Siêu xe thể thao">
+            <h3>Luxury Sports Car</h3>
+            <p>Thiết kế hiện đại, đường nét đầy cuốn hút.</p>
+        </article>
+
+        <article class="car-card" data-aos="fade-up" data-aos-delay="400">
+            <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80"
+                alt="Xe sang cao cấp">
+            <h3>Premium Collection</h3>
+            <p>Sự kết hợp giữa công nghệ và đẳng cấp.</p>
+        </article>
+
+    </div>
+</section>
+
+    </main>
+
+   ```html
+<section id="contact" class="contact-section">
+    <h2>Liên hệ với chúng tôi</h2>
+    <p>Hãy kết nối với Luxury Cars để tìm hiểu thêm về những mẫu xe bạn yêu thích.</p>
+
+    <div class="contact-info">
+        <p><strong>Điện thoại:</strong> 0937 636 320</p>
+        <p><strong>Email:</strong> haotruong129@gmail.com</p>
+        <p><strong>Địa chỉ:</strong> Biên Hòa, Đồng Nai</p>
+    </div>
+</section>
+
+<section id="reviews" class="reviews-section">
+    <h2>Khách hàng nói gì?</h2>
+
+    <div class="review-list" id="reviewList">
+        <article class="review-card">
+            <h3>Minh Anh</h3>
+            <p>Giao diện đẹp, hình ảnh xe rất ấn tượng.</p>
+        </article>
+
+        <article class="review-card">
+            <h3>Hoàng Nam</h3>
+            <p>Thiết kế hiện đại, màu sắc nhìn sang trọng.</p>
+        </article>
+    </div>
+
+    <h3>Để lại nhận xét</h3>
+    <form id="reviewForm">
+        <label for="customerName">Tên của bạn</label>
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Nhập tên của bạn"
+            required
+            maxlength="50"
+        >
+
+        <label for="customerComment">Nội dung nhận xét</label>
+        <textarea
+            id="customerComment"
+            placeholder="Chia sẻ cảm nhận của bạn..."
+            required
+            maxlength="500"
+            rows="4"
+        ></textarea>
+
+        <button type="submit">Gửi nhận xét</button>
+    </form>
+
+    <p id="reviewMessage" aria-live="polite"></p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Luxury Cars | Website dự án học tập</p>
+</footer>
+
+<script>
+    const reviewForm = document.getElementById("reviewForm");
+    const reviewList = document.getElementById("reviewList");
+    const reviewMessage = document.getElementById("reviewMessage");
+
+    reviewForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("customerName").value.trim();
+        const comment = document.getElementById("customerComment").value.trim();
+
+        if (!name || !comment) {
+            reviewMessage.textContent = "Vui lòng nhập đầy đủ thông tin.";
+            return;
+        }
+
+        const card = document.createElement("article");
+        card.className = "review-card";
+
+        const title = document.createElement("h3");
+        title.textContent = name;
+
+        const content = document.createElement("p");
+        content.textContent = comment;
+
+        card.append(title, content);
+        reviewList.appendChild(card);
+
+        reviewMessage.textContent = "Đã thêm nhận xét trên trang này!";
+        reviewForm.reset();
+    });
+</script>
+```
+    
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+</script>
+</body>
+</html>
